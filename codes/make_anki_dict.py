@@ -18,8 +18,11 @@ from bs4 import BeautifulSoup
 import sys
 
 # get next word in the IO object
-def get_next_word(file: io.TextIOWrapper) -> str:
-    pass
+def get_next_word(file: io.BufferedReader) -> str:
+    
+    # find the closing body tag in file
+    while file.readline().strip() != "</tr>":
+        pass
 
 # if file is executed directly 
 if __name__ == "__main__":
