@@ -62,13 +62,13 @@ if __name__ == "__main__":
     # verify if input file exists and can be accessed
     try:
         in_file = open(sys.argv[1], "r")
-        
+
         # pass the input file to the a soup object then get every card from the file
         cards = get_all_cards(BeautifulSoup(in_file.read()))
+        in_file.close()
 
     except OSError:
         print(f"ERROR: {sys.argv[1]} can't be readed!\n")
-        in_file.close()
         sys.exit(1)
 
     # verify if output file can be written
