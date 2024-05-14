@@ -14,9 +14,9 @@ and the second being the txt file to store the words, this script will
 simply store the results as "言葉, [ことば] word" for each word.
 """
 
+from bs4 import BeautifulSoup
 
-
-# get next word in the 
+# get next word in the BeautifulSoup object
 def get_next_word():
     pass
 
