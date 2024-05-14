@@ -17,17 +17,22 @@ simply store the results as "言葉, [ことば] word" for each word.
 from bs4 import BeautifulSoup
 import sys, io
 
-# get all words in the soup object
-def get_all_words(soup: BeautifulSoup) -> list[list[str]]:
+# get all cards in the soup object, a card beinga word and it's translation
+def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
     
     # pass all td tags contained in soup
     td_tags = soup.find_all("td")
 
     #
     n = 0
+    cards = []
     for tag in td_tags:
         if "JLPT" in tag.contents[0]:
-            pass
+            kanji = ""
+            hiragana = ""
+            meaning = ""
+
+        n += 1
 
 # if file is executed directly 
 if __name__ == "__main__":
@@ -64,19 +69,11 @@ if __name__ == "__main__":
         
         sys.exit(1)
 
-    # pass the input file to the a soup object
-    soup = BeautifulSoup(in_file.read())
+    # pass the input file to the a soup object then get every card
+    cards = get_all_cards(BeautifulSoup(in_file.read()))
 
-    # executes till the end of input file
-    while True:
-        pass
-
-        # get next word
-
-        # get the word kana
-
-        # get the translation
-
-        # write at the end of output file
+    # write every word and it's meaning in the output file
+    for card in cards:
+        out_file.write(f"{card[0]}, {card[1]}\n")
 
 
