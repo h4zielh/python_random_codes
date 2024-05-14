@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     # verify arguments length
     if len(sys.argv) < 3:
-        print(f"ERROR: too few arguments! please execute file as follow: \"python3 {__file__} <input_file.html> <output_file.txt>\"\n")
+        print(f"ERROR: too few arguments, please execute file as follow: \"python3 {__file__} <input_file.html> <output_file.txt>\"\n")
         sys.exit(1)
 
     # verify if input file exists and can be accessed
@@ -76,7 +76,7 @@ if __name__ == "__main__":
         out_file.writable()
 
     except OSError:
-        print(f"ERROR: {sys.argv[2]} can't be written!\n")
+        print(f"ERROR: {sys.argv[2]} can't be written...\n")
         out_file.close()       
         sys.exit(1)
 
@@ -93,7 +93,7 @@ if __name__ == "__main__":
         sys.exit(0)
 
     except OSError:
-        print(f"ERROR: {sys.argv[2]} can't be written!\n")
+        print(f"ERROR: {sys.argv[2]} can't be written...\n")
         sys.exit(1)
         
     finally:
