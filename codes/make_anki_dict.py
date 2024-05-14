@@ -42,10 +42,10 @@ def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
                 card.append(f"[{furigana}] {meaning}")
             
             else:
-                card += meaning
+                card.append(meaning)
 
             # add the card
-            cards += card
+            cards.append(card)
 
         n += 1
 
