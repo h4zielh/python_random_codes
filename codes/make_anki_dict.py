@@ -15,6 +15,7 @@ simply store the results as "言葉, [ことば] word" for each word.
 """
 
 from bs4 import BeautifulSoup
+from pathlib import Path
 import sys
 
 # get all cards in the soup object, a card beinga word and it's translation
@@ -62,7 +63,7 @@ if __name__ == "__main__":
     # verify if input file exists and can be accessed
     in_content = ""
     try:
-        in_file = open(sys.argv[1], "r", encoding='utf-8')
+        in_file = open(Path(rf"{sys.argv[1]}"), "r", encoding='utf-8')
         in_content = in_file.read()
         in_file.close()
 
@@ -72,7 +73,7 @@ if __name__ == "__main__":
 
     # verify if output file can be written
     try:
-        out_file = open(sys.argv[2], "w")
+        out_file = open(Path(rf"{sys.argv[2]}"), "w")
         out_file.writable()
 
     except OSError:
