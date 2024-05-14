@@ -82,7 +82,8 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # pass the input file to the a soup object then get every card from the file
-    cards = get_all_cards(BeautifulSoup(in_content))
+    soup = BeautifulSoup(in_content)
+    cards = get_all_cards(soup)
 
     # write every word and it's meaning at the end of output file
     try:
