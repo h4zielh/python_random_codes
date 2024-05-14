@@ -15,13 +15,19 @@ simply store the results as "言葉, [ことば] word" for each word.
 """
 
 from bs4 import BeautifulSoup
-import sys
+import sys, io
 
-# get next word in the IO object
-def get_next_word(file: io.BufferedReader) -> str:
+# get all words in the soup object
+def get_all_words(soup: BeautifulSoup) -> list[list[str]]:
     
-    # find the closing body tag in file
-    pass
+    # pass all td tags contained in soup
+    td_tags = soup.find_all("td")
+
+    #
+    n = 0
+    for tag in td_tags:
+        if "JLPT" in tag.contents[0]:
+            pass
 
 # if file is executed directly 
 if __name__ == "__main__":
@@ -60,11 +66,6 @@ if __name__ == "__main__":
 
     # pass the input file to the a soup object
     soup = BeautifulSoup(in_file.read())
-
-    # pass all td tags contained in soup
-    td_tags = soup.find_all("td")
-
-    #
 
     # executes till the end of input file
     while True:
