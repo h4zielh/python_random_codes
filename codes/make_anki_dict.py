@@ -15,7 +15,7 @@ simply store the results as "言葉, [ことば] word" for each word.
 """
 
 from bs4 import BeautifulSoup
-import sys, io
+import sys
 
 # get all cards in the soup object, a card beinga word and it's translation
 def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
@@ -60,31 +60,26 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # verify if input file exists and can be accessed
-    in_file = io.io.TextIOWrapper
     try:
-        with open(sys.argv[1], "r") as in_file:
-            # pass the input file to the a soup object then get every card from the file
-            cards = get_all_cards(BeautifulSoup(in_file.read()))
+        in_file = open(sys.argv[1], "r")
+        
+        # pass the input file to the a soup object then get every card from the file
+        cards = get_all_cards(BeautifulSoup(in_file.read()))
 
     except OSError:
         print(f"ERROR: {sys.argv[1]} can't be readed!\n")
+        in_file.close()
         sys.exit(1)
 
-    finally:
-        in_file.close()
-
     # verify if output file can be written
-    out_file = io.TextIOWrapper
     try:
         out_file = open(sys.argv[2], "w")
         out_file.writable()
 
     except OSError:
-        print(f"ERROR: {sys.argv[2]} can't be written!\n")        
+        print(f"ERROR: {sys.argv[2]} can't be written!\n")
+        out_file.close()       
         sys.exit(1)
-
-    finally:
-        out_file.close()
 
     # write every word and it's meaning at the end of output file
     try:
