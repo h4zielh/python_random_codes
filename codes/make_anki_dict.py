@@ -89,6 +89,9 @@ if __name__ == "__main__":
     try:
         for card in cards:
             out_file.write(f"{card[0]}, {card[1]};\n")
+        
+        print("Done.\n")
+        sys.exit(0)
 
     except OSError:
         print(f"ERROR: {sys.argv[2]} can't be written!\n")
