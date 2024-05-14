@@ -35,7 +35,7 @@ def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
             meaning = tags[n+3].contents[0]
 
             # adds the kanji to the card
-            card = [kanji]
+            card = [kanji + ';']
 
             # if the word is only composed of
             # hiragana, don't add the furigana
