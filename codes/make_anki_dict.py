@@ -42,9 +42,14 @@ def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
                 card.append(f"[{furigana}] {meaning}")
             
             else:
-                card.append(meaning)
+                card += meaning
+
+            # add the card
+            cards += card
 
         n += 1
+
+    return cards
 
 # if file is executed directly 
 if __name__ == "__main__":
@@ -56,11 +61,12 @@ if __name__ == "__main__":
 
     # verify if input file exists and can be accessed
     try:
-        in_file = open(sys.argv[1], "r")
-        in_file.readable()
+        with open(sys.argv[1], "r") as in_file:
+            # pass the input file to the a soup object then get every card from the file
+            cards = get_all_cards(BeautifulSoup(in_file.read()))
 
     except OSError:
-        print(f"ERROR: {sys.argv[1]} can't be read!\n")
+        print(f"ERROR: {sys.argv[1]} can't be readed!\n")
 
         if in_file.closed != True:
             in_file.close()
@@ -79,9 +85,6 @@ if __name__ == "__main__":
             out_file.close()
         
         sys.exit(1)
-
-    # pass the input file to the a soup object then get every card
-    cards = get_all_cards(BeautifulSoup(in_file.read()))
 
     # write every word and it's meaning at the of output file
     for card in cards:
