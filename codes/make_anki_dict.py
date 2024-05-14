@@ -31,6 +31,17 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # verify if input file exists and can be accessed
+    try:
+        in_file = open(sys.argv[1], "r")
+        in_file.readable()
+
+    except OSError:
+        print(f"ERROR: {sys.argv[1]} can't be read!\n")
+
+        if in_file.closed != True:
+            in_file.close()
+        
+        sys.exit(1)
 
     # verify if output file can be written
 
