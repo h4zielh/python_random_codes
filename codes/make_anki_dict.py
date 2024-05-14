@@ -60,6 +60,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # verify if input file exists and can be accessed
+    in_file = io.IOBase
     try:
         with open(sys.argv[1], "r") as in_file:
             # pass the input file to the a soup object then get every card from the file
@@ -73,6 +74,7 @@ if __name__ == "__main__":
         in_file.close()
 
     # verify if output file can be written
+    out_file = io.IOBase
     try:
         out_file = open(sys.argv[2], "w")
         out_file.writable()
