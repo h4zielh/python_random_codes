@@ -27,4 +27,10 @@ if __name__ == "__main__":
 
     # verify if output file can be written
 
+    # executes till the end of input file
+    while True:
+        pass
+
+        #
+
 
