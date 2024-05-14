@@ -46,7 +46,7 @@ if __name__ == "__main__":
     # verify if output file can be written
     try:
         in_file = open(sys.argv[2], "w")
-        in_file.readable()
+        in_file.writable()
 
     except OSError:
         print(f"ERROR: {sys.argv[2]} can't be written!\n")
