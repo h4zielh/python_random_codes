@@ -36,7 +36,8 @@ def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
             # adds the kanji to the card
             card = [kanji]
 
-            # if the word if only composed of hiragana, don't add the 
+            # if the word is only composed of
+            # hiragana, don't add the furigana
             if kanji != furigana:
                 card.append(f"[{furigana}] {meaning}")
             
@@ -47,7 +48,6 @@ def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
 
 # if file is executed directly 
 if __name__ == "__main__":
-    pass
 
     # verify arguments length
     if len(sys.argv) < 3:
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     # pass the input file to the a soup object then get every card
     cards = get_all_cards(BeautifulSoup(in_file.read()))
 
-    # write every word and it's meaning in the output file
+    # write every word and it's meaning at the of output file
     for card in cards:
         out_file.write(f"{card[0]}, {card[1]}\n")
 
