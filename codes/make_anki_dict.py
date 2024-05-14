@@ -44,6 +44,17 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # verify if output file can be written
+    try:
+        in_file = open(sys.argv[2], "w")
+        in_file.readable()
+
+    except OSError:
+        print(f"ERROR: {sys.argv[2]} can't be written!\n")
+
+        if in_file.closed != True:
+            in_file.close()
+        
+        sys.exit(1)
 
     # executes till the end of input file
     #while True:
