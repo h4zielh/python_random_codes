@@ -31,6 +31,12 @@ if __name__ == "__main__":
     while True:
         pass
 
-        # get next word 
+        # get next word
+
+        # get the word kana
+
+        # get the translation
+
+        # write at the end of output file
 
 
