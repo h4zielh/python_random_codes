@@ -23,19 +23,22 @@ def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
     # pass all td tags contained in soup
     tags = soup.find_all("td")
 
-    #
+    # search for every tag containing "JLPT", if
+    # find the next three elements will be useful
     n = 0
     cards = []
     for tag in tags:
         if "JLPT" in tag.contents[0]:
             kanji = tags[n+1].contents[0]
-            hiragana = tags[n+2].contents[0]
+            furigana = tags[n+2].contents[0]
             meaning = tags[n+3].contents[0]
 
+            # adds the kanji to the card
             card = [kanji]
 
-            if kanji != hiragana:
-                card.append(f"[{hiragana}] {meaning}")
+            # if the word if only composed of hiragana, don't add the 
+            if kanji != furigana:
+                card.append(f"[{furigana}] {meaning}")
             
             else:
                 card.append(meaning)
