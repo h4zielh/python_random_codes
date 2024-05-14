@@ -20,7 +20,7 @@ import sys
 
 # get all cards in the soup object, a card beinga word and it's translation
 def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
-    
+
     # pass all td tags contained in soup
     tags = soup.find_all("td")
 
@@ -40,7 +40,7 @@ def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
             # if the word is only composed of
             # hiragana, don't add the furigana
             if kanji != furigana:
-                card.append(f"[{furigana}] {meaning}")
+                card.append(f"{meaning}. [{furigana}]")
             
             else:
                 card.append(meaning)
@@ -65,7 +65,7 @@ if __name__ == "__main__":
     try:
         in_file = open(Path(rf"{sys.argv[1]}"), "r", encoding='utf-8')
         in_content = in_file.read()
-        in_file.close()
+        #in_file.close()
 
     except OSError:
         print(f"ERROR: {sys.argv[1]} can't be readed!\n")
@@ -73,7 +73,7 @@ if __name__ == "__main__":
 
     # verify if output file can be written
     try:
-        out_file = open(Path(rf"{sys.argv[2]}"), "w")
+        out_file = open(Path(rf"{sys.argv[2]}"), "w", encoding="utf-8")
         out_file.writable()
 
     except OSError:
@@ -82,13 +82,13 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # pass the input file to the a soup object then get every card from the file
-    soup = BeautifulSoup(in_content)
+    soup = BeautifulSoup(in_content, features="html.parser")
     cards = get_all_cards(soup)
 
     # write every word and it's meaning at the end of output file
     try:
         for card in cards:
-            out_file.write(f"{card[0]}, {card[1]}\n")
+            out_file.write(f"{card[0]}, {card[1]};\n")
 
     except OSError:
         print(f"ERROR: {sys.argv[2]} can't be written!\n")
