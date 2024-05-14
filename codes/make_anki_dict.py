@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
     # verify arguments length
     if len(sys.argv) < 2:
-        print(f"ERROR: too few arguments! please execute file as follow: \"python3 {__file__} <input_file.html> <output_file.txt>\"")
+        print(f"ERROR: too few arguments! please execute file as follow: \"python3 {__file__} <input_file.html> <output_file.txt>\"\n")
         sys.exit(1)
 
     # verify if input file exists and can be accessed
@@ -35,8 +35,8 @@ if __name__ == "__main__":
     # verify if output file can be written
 
     # executes till the end of input file
-    while True:
-        pass
+    #while True:
+        #pass
 
         # get next word
 
