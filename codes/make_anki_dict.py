@@ -28,7 +28,7 @@ def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
     n = 0
     cards = []
     for tag in tags:
-        if "JLPT" in tag.contents[0]:
+        if len(tag.contents) > 0 and "JLPT" in tag.contents[0]:
             kanji = tags[n+1].contents[0]
             furigana = tags[n+2].contents[0]
             meaning = tags[n+3].contents[0]
@@ -60,11 +60,10 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # verify if input file exists and can be accessed
+    in_content = ""
     try:
         in_file = open(sys.argv[1], "r", encoding='utf-8')
-
-        # pass the input file to the a soup object then get every card from the file
-        cards = get_all_cards(BeautifulSoup(in_file.read()))
+        in_content = in_file.read()
         in_file.close()
 
     except OSError:
@@ -80,6 +79,9 @@ if __name__ == "__main__":
         print(f"ERROR: {sys.argv[2]} can't be written!\n")
         out_file.close()       
         sys.exit(1)
+
+    # pass the input file to the a soup object then get every card from the file
+    cards = get_all_cards(BeautifulSoup(in_content))
 
     # write every word and it's meaning at the end of output file
     try:
