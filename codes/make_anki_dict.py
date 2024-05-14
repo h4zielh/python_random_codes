@@ -61,7 +61,6 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # verify if input file exists and can be accessed
-    in_content = ""
     try:
         in_file = open(Path(rf"{sys.argv[1]}"), "r", encoding='utf-8')
         in_content = in_file.read()
