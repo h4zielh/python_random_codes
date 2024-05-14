@@ -21,4 +21,10 @@ def get_next_word():
 if __name__ == "__main__":
     pass
 
+    # verify arguments length
+
+    # verify if input file exists and can be accessed
+
+    # verify if output file can be written
+
 
