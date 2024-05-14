@@ -26,7 +26,7 @@ if __name__ == "__main__":
     pass
 
     # verify arguments length
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 3:
         print(f"ERROR: too few arguments! please execute file as follow: \"python3 {__file__} <input_file.html> <output_file.txt>\"\n")
         sys.exit(1)
 
