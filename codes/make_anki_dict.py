@@ -3,7 +3,7 @@ context:
 
 i was looking for a good japanese anki deck to practice and came
 across this post on reddit, i decided to download the files as html and use
-the beautiful soup API to take only the word and it's meaning.
+the beautiful soup API to take only the words and it's meanings.
 
 https://www.reddit.com/r/LearnJapanese/comments/s2iop/heres_a_spreadsheet_of_the_6000_most_common/
 
@@ -56,9 +56,11 @@ if __name__ == "__main__":
         
         sys.exit(1)
 
+    # open the input file as a beatiful soup object
+
     # executes till the end of input file
-    #while True:
-        #pass
+    while True:
+        pass
 
         # get next word
 
