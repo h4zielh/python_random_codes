@@ -67,11 +67,10 @@ if __name__ == "__main__":
 
     except OSError:
         print(f"ERROR: {sys.argv[1]} can't be readed!\n")
-
-        if in_file.closed != True:
-            in_file.close()
-        
         sys.exit(1)
+
+    finally:
+        in_file.close()
 
     # verify if output file can be written
     try:
@@ -79,14 +78,13 @@ if __name__ == "__main__":
         out_file.writable()
 
     except OSError:
-        print(f"ERROR: {sys.argv[2]} can't be written!\n")
-
-        if out_file.closed != True:
-            out_file.close()
-        
+        print(f"ERROR: {sys.argv[2]} can't be written!\n")        
         sys.exit(1)
 
-    # write every word and it's meaning at the of output file
+    finally:
+        out_file.close()
+
+    # write every word and it's meaning at the end of output file
     try:
         for card in cards:
             out_file.write(f"{card[0]}, {card[1]}\n")
