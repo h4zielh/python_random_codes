@@ -35,7 +35,7 @@ def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
             meaning = tags[n+3].contents[0]
 
             # adds the kanji to the card
-            card = [kanji + ';']
+            card = [kanji]
 
             # if the word is only composed of
             # hiragana, don't add the furigana
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     # write every word and it's meaning at the end of output file
     try:
         for card in cards:
-            out_file.write(f"{card[0]}, {card[1]};\n")
+            out_file.write(f"{card[0]}; {card[1]};\n")
         
         print("Done.\n")
         sys.exit(0)
