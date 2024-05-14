@@ -21,8 +21,7 @@ import sys
 def get_next_word(file: io.BufferedReader) -> str:
     
     # find the closing body tag in file
-    while file.readline().strip() != "</tr>":
-        pass
+    pass
 
 # if file is executed directly 
 if __name__ == "__main__":
@@ -58,6 +57,14 @@ if __name__ == "__main__":
             out_file.close()
         
         sys.exit(1)
+
+    # pass the input file to the a soup object
+    soup = BeautifulSoup(in_file.read())
+
+    # pass all td tags contained in soup
+    td_tags = soup.find_all("td")
+
+    #
 
     # executes till the end of input file
     while True:
