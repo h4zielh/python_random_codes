@@ -17,7 +17,7 @@ simply store the results as "言葉, [ことば] word" for each word.
 def get_next_word():
     pass
 
-# if file is executed directly
+# if file is executed directly 
 if __name__ == "__main__":
     pass
 
