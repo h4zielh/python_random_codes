@@ -87,7 +87,16 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # write every word and it's meaning at the of output file
-    for card in cards:
-        out_file.write(f"{card[0]}, {card[1]}\n")
+    try:
+        for card in cards:
+            out_file.write(f"{card[0]}, {card[1]}\n")
+
+    except OSError:
+        print(f"ERROR: {sys.argv[2]} can't be written!\n")
+
+        if out_file.closed != True:
+            out_file.close()
+        
+        sys.exit(1)
 
 
