@@ -61,7 +61,7 @@ if __name__ == "__main__":
 
     # verify if input file exists and can be accessed
     try:
-        in_file = open(sys.argv[1], "r")
+        in_file = open(sys.argv[1], "r", encoding='utf-8')
 
         # pass the input file to the a soup object then get every card from the file
         cards = get_all_cards(BeautifulSoup(in_file.read()))
