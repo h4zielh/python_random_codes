@@ -25,7 +25,7 @@ def get_all_cards(soup: BeautifulSoup) -> list[list[str]]:
     tags = soup.find_all("td")
 
     # search for every tag containing "JLPT", if
-    # find the next three elements will be useful
+    # found, the next three elements will be useful
     n = 0
     cards = []
     for tag in tags:
