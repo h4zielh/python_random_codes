@@ -93,10 +93,8 @@ if __name__ == "__main__":
 
     except OSError:
         print(f"ERROR: {sys.argv[2]} can't be written!\n")
-
+        sys.exit(1)
+        
+    finally:
         if out_file.closed != True:
             out_file.close()
-        
-        sys.exit(1)
-
-
