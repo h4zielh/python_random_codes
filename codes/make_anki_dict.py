@@ -17,8 +17,8 @@ simply store the results as "言葉, [ことば] word" for each word.
 from bs4 import BeautifulSoup
 import sys
 
-# get next word in the BeautifulSoup object
-def get_next_word(soup: BeautifulSoup) -> str:
+# get next word in the IO object
+def get_next_word(file: io.TextIOWrapper) -> str:
     pass
 
 # if file is executed directly 
@@ -55,8 +55,6 @@ if __name__ == "__main__":
             out_file.close()
         
         sys.exit(1)
-
-    # open the input file as a beatiful soup object
 
     # executes till the end of input file
     while True:
