@@ -15,9 +15,10 @@ simply store the results as "言葉, [ことば] word" for each word.
 """
 
 from bs4 import BeautifulSoup
+import sys
 
 # get next word in the BeautifulSoup object
-def get_next_word():
+def get_next_word(soup: BeautifulSoup) -> str:
     pass
 
 # if file is executed directly 
@@ -25,6 +26,8 @@ if __name__ == "__main__":
     pass
 
     # verify arguments length
+    if len(sys.argv) < 2:
+        print(f"ERROR: too few arguments! please execute file as follow: \"python3 {__file__} <input_file.html> <output_file.txt>\"")
 
     # verify if input file exists and can be accessed
 
